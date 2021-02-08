@@ -1,23 +1,12 @@
-FROM alpine
+FROM alpine:latest
 
-RUN apk update
+LABEL maintainer="Autotoolr <https://gitlab.com/autotoolr-docker>" cli_version="1.17.2"
 
-RUN apk upgrade
+RUN apk -v --update add ca-certificates && \
+    apk add --virtual=build curl tar zip gzip && \
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.2/bin/linux/amd64/kubectl && \
 
-RUN apk add --no-cache \
-		ca-certificates \
-		libffi-dev \
-		openssl-dev \
-		gcc \
-		libc-dev \
-		make \
-		bash \
-		git \
-		curl \
-		wget
-
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-RUN chmod +x ./kubectl
-RUN mv ./kubectl /usr/local/bin
-
-CMD ["sh"]
+    chmod +x ./kubectl && \
+    mv ./kubectl /usr/local/bin/kubectl && \
+    apk --purge del build && \
+    rm /var/cache/apk/*

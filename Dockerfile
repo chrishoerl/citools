@@ -14,7 +14,7 @@ RUN mkdir /tmp/helm && cd /tmp/helm \
   && tar xvf helm-v3.0.2-linux-amd64.tar.gz \
   && cp linux-amd64/helm /usr/bin/helm \
   && cd / && rm -rf /tmp/helm \
-  && helm plugin install https://github.com/chartmuseum/helm-push \
+  && helm plugin install https://github.com/chartmuseum/helm-push
 #  && helm repo add --username='robot$gitlab' --password='xxxxx' gitlab.example.com http://gitlab.example.com:4000
 
 # Install kubectl

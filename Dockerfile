@@ -15,7 +15,7 @@ RUN mkdir /tmp/helm && cd /tmp/helm \
 
 # Install kubectl
 RUN mkdir /tmp/kubectl && cd /tmp/kubectl \
-  && wget --no-check-certificate https://storage.googleapis.com/kubernetes-release/release/v1.20.4/bin/linux/amd64/kubectl \
+  && wget --no-check-certificate https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl \
   && chmod +x ./kubectl \
   && cp ./kubectl /usr/bin/kubectl \
   && cd / && rm -rf /tmp/kubectl

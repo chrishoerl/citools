@@ -1,6 +1,6 @@
 # CI / CD tools
 
-Is a Docker image with docker, helm 3.5.2 and kubectl 1.20.4
+Is a Docker image with docker, helm 3.5.3 and kubectl 1.21.0
 
 It can be used for ci jobs in GitLab.
 

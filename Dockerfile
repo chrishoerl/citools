@@ -6,8 +6,8 @@ RUN apk update && apk upgrade \
 
 # Install helm
 RUN mkdir /tmp/helm && cd /tmp/helm \
-  && wget --no-check-certificate https://get.helm.sh/helm-v3.5.3-linux-amd64.tar.gz \
-  && tar xvf helm-v3.5.3-linux-amd64.tar.gz \
+  && wget --no-check-certificate https://get.helm.sh/helm-v3.5.4-linux-amd64.tar.gz \
+  && tar xvf helm-v3.5.4-linux-amd64.tar.gz \
   && cp linux-amd64/helm /usr/bin/helm \
   && cd / && rm -rf /tmp/helm \
   && helm plugin install https://github.com/chartmuseum/helm-push
